@@ -2,6 +2,11 @@
 
 Telegram bot which retrieves Nintendo channels' tweets. Built in Java.
 
+#### Why bot is called Ninjara? :)
+
+Ninjara is a character from **ARMS**. He is an expert in ninja fighting style. He is known as the "Student of Stealth."
+And he is ***cool*** guy
+
 ## Getting started
 
 Clone the repository to your local machine and set enviroment variable **NINJARA_TELEGRAMTOKEN** to your actual bot's token that you can get from [@BotFather](t.me/BotFather) using **/newbot** command
