@@ -1,6 +1,6 @@
 # Ninjara Bot
 
-Telegram bot which retrieves Nintendo channels' tweets. Built in Java.
+Telegram bot which retrieves Nintendo tweets.
 
 #### Why bot is called Ninjara? :)
 
