@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2a75ed0-727c-45d3-b9c7-b5e807a7d37f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/NinjaraBot/Main.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/NinjaraBot/NinjaraBot.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NinjaraBot.java" />
@@ -259,12 +261,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511971227254</updated>
       <workItem from="1511971231727" duration="2917000" />
-      <workItem from="1511975419210" duration="6000" />
+      <workItem from="1511975419210" duration="57000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2923000" />
+    <option name="totallyTimeSpent" value="2974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="132" y="16" width="1537" height="912" extended-state="6" />
