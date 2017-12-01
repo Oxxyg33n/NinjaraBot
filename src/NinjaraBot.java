@@ -9,48 +9,26 @@ public class NinjaraBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-
-        //check if the update has a message
         if(update.hasMessage()){
             Message message = update.getMessage();
-
-            //Сheck if the message has text.
-            if(message.hasText()){
-                if(message.getText().toLowerCase().equals("nintendo")) try {
-                    QueryResult result = twitterQuery("#nintendo");
-                    SendMessage sendMessageRequest = new SendMessage();
-                    for (Status status : result.getTweets()) {
-                        sendMessageRequest.setChatId(update.getMessage().getChatId());
-                        sendMessageRequest.setText("https://twitter.com/" + status.getUser().getScreenName() + ": " + status.getText());
-                        execute(sendMessageRequest);
-                    }
-
-                    Thread.sleep(3000);
-                } catch (TwitterException te) {
-                    te.printStackTrace();
-                    System.out.println("Failed to search tweets: " + te.getMessage());
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } catch (InterruptedException | TelegramApiException e) {
-                    e.printStackTrace();
+            String text = message.getText().toLowerCase();
+            if(text.equals("/start")) sendMessage(message, "To start using @NinjaraBot, press one of the buttons or write \"Nintendo\"!");
+            else if(text.equals("nintendo")) try {
+                QueryResult result = twitterQuery("#nintendo");
+                for (Status status : result.getTweets()) {
+                    String tgMsg = "@" + status.getUser().getScreenName() + ": " +status.getText();
+                    sendMessage(message, tgMsg);
                 }
-                else {
-                    SendMessage sendMessageRequest = new SendMessage();
-                    sendMessageRequest.setChatId(update.getMessage().getChatId());
-                    sendMessageRequest.setText("Sorry, I don't understand you, try writing: \"Nintendo\"");
-                    try {
-                        execute(sendMessageRequest);
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }//end if()
-        }//end  if()
 
-    }//end onUpdateReceived()
+                Thread.sleep(3000);
+            } catch (TwitterException e) {
+                e.printStackTrace();
+                sendMessage(message, "Failed to search for tweets: " + e.getMessage());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     
     @Override
     public String getBotUsername() {
@@ -65,9 +43,19 @@ public class NinjaraBot extends TelegramLongPollingBot {
     private QueryResult twitterQuery(String q) throws TwitterException {
         Twitter twitter = TwitterFactory.getSingleton();
         Query query = new Query(q);
-        QueryResult result = twitter.search(query);
 
-        return result;
+        return twitter.search(query);
+    }
+
+    private void sendMessage(Message msg, String text) {
+        SendMessage s = new SendMessage();
+        s.setChatId(msg.getChatId());
+        s.setText(text);
+        try {
+            execute(s);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 
 }
