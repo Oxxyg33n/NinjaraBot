@@ -2,4 +2,5 @@
 *.log
 *.lck
 *.properties
+*.example
 out/
