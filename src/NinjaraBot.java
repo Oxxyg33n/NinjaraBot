@@ -30,7 +30,7 @@ public class NinjaraBot extends TelegramLongPollingBot {
             } else if(messageText.equals(US_Flag + " Nintendo America")) {
                 searchTwitterQuery(message, "@NintendoAmerica");
             } else if(messageText.equals(UK_Flag + " Nintendo UK")) {
-                searchTwitterQuery(message, UK_Flag + " Nintendo Russia");
+                searchTwitterQuery(message, "@NintendoUK");
             } else if(messageText.equals(RU_Flag + " Nintendo Russia")) {
                 searchTwitterQuery(message, "@NintendoRU");
             } else if(messageText.equals(JP_Flag + " Nintendo Japan")) {
