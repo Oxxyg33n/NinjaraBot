@@ -92,7 +92,6 @@ public class NinjaraBot extends TelegramLongPollingBot {
         replyKeyboardMarkup.setKeyboard(keyboard);
 
         s.setChatId(message.getChatId());
-        s.setReplyToMessageId(message.getMessageId());
         s.setText(msgText);
         try {
             execute(s);
