@@ -24,11 +24,19 @@ public class NinjaraBot extends TelegramLongPollingBot {
         if(update.hasMessage()) {
             Message message = update.getMessage();
 
-            String text = message.getText().toLowerCase();
-            if(text.equals("nintendo")) {
+            String messageText = message.getText();
+            if(message.getText().toLowerCase().equals("nintendo") || messageText.equals("#Nintendo")) {
                 searchTwitterQuery(message, "#Nintendo");
-
-                // TODO: Add switch construction for different strings
+            } else if(messageText.equals(US_Flag + " Nintendo America")) {
+                searchTwitterQuery(message, "@NintendoAmerica");
+            } else if(messageText.equals(UK_Flag + " Nintendo UK")) {
+                searchTwitterQuery(message, UK_Flag + " Nintendo Russia");
+            } else if(messageText.equals(RU_Flag + " Nintendo Russia")) {
+                searchTwitterQuery(message, "@NintendoRU");
+            } else if(messageText.equals(JP_Flag + " Nintendo Japan")) {
+                searchTwitterQuery(message, "@Nintendo");
+            } else if(messageText.equals(EU_Flag + " Nintendo Europe")) {
+                searchTwitterQuery(message, "@NintendoEurope");
             } else {
                 sendMessage(message, "To start using @NinjaraBot, press one of the buttons or write \"Nintendo\"!");
             }
