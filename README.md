@@ -14,8 +14,10 @@ Clone the repository to your local machine and set enviroment variable **NINJARA
 ## Built with
 
 * [Telegram](https://telegram.org/)
-* [Telegram APIs](https://core.telegram.org/bots/api)
+* [Telegram API](https://core.telegram.org/bots/api)
 * [Telegram Bot Java Library](https://github.com/rubenlagus/TelegramBots)
+* [Emoji java library](https://github.com/vdurmont/emoji-java)
+* [Java JSON library](http://mvnrepository.com/artifact/org.json/json)
 * [Intellij IDEA](https://www.jetbrains.com/idea/)
 
 ## Author
