@@ -39,6 +39,7 @@ public class NinjaraBot extends TelegramLongPollingBot {
                 searchTwitterQuery(message, "@NintendoEurope");
             } else {
                 sendMessage(message, "To start using @NinjaraBot, press one of the buttons or write \"Nintendo\"!");
+                sendMessage(message, "@NinjaraBot is created by Aleksandr Logvinenko, IVSB11 as a Personal Java Homework Project");
             }
         }
     }
@@ -62,7 +63,6 @@ public class NinjaraBot extends TelegramLongPollingBot {
 
     private void sendMessage(Message message, String msgText) {
         SendMessage s = new SendMessage();
-        s.enableMarkdown(true);
 
         // Create keyboard
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
@@ -106,10 +106,11 @@ public class NinjaraBot extends TelegramLongPollingBot {
 
             for (Status status : result.getTweets()) {
                 String tgMsg = "@" + status.getUser().getScreenName() + ": " + status.getText();
+                //String tgMsg = status.getUser().getScreenName();
                 sendMessage(message, tgMsg);
             }
 
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (TwitterException e) {
             e.printStackTrace();
             sendMessage(message, "Failed to search tweets: "+ e.getMessage());
